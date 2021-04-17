@@ -1,0 +1,66 @@
+<?php 
+// 2021.04.17.토 운영체제 중간제출 과제물... 손으로 하니 힘들어 만듦
+
+require "RoundRobin.php";
+require "Process.php";
+
+$queue = [
+    new Process('A', 0, 6),
+    new Process('B', 1, 3),
+    new Process('C', 2, 1),
+    new Process('D', 3, 4),
+];
+
+$rr = new RoundRobin;
+$rr->setTimeQuota(3)->setQueue($queue)->goround();
+// print_r($rr->getComplete()); exit;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoundRobin</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <?php foreach ($queue as $p) : ?>
+            <th><?= $p->getName() ?></th>
+            <?php endforeach; ?>
+        </tr>
+        <tr>
+            <td>대기시간</td>
+            <? 
+                $per_wait_time = 0;
+                foreach ($queue as $p) {
+                    $wait_time = $p->getWaitTime();
+                    $per_wait_time += $wait_time;
+                    echo "<td>${wait_time}</td>";
+                }
+            ?>
+        </tr>
+        <tr>
+            <td>반환시간</td>
+            <? 
+                $per_return_time = 0;
+                foreach ($queue as $p) {
+                    $return_time = $p->getWaitTime() + $p->getWorkTime();
+                    $per_return_time += $return_time;
+                    echo "<td>${return_time}</td>";
+                }
+            ?>
+        </tr>
+        
+    </table>
+    <br>
+    <div>
+        <span>전체 시간 : <?= $rr->getTotalTime() ?> </span><br>
+        <span>평균 대기시간 : <?= $per_wait_time / count($queue) ?></span><br>
+        <span>평균 반환시간 : <?= $per_return_time / count($queue) ?></span><br>
+    </div>
+</body>
+</html>
