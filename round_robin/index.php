@@ -5,14 +5,18 @@ require "RoundRobin.php";
 require "Process.php";
 
 $queue = [
-    new Process('A', 0, 6),
-    new Process('B', 1, 3),
-    new Process('C', 2, 1),
-    new Process('D', 3, 4),
+    new Process('A', 0, 7),
+    new Process('B', 1, 2),
+    new Process('C', 3, 4),
+    new Process('D', 4, 1),
+    new Process('E', 7, 2),
 ];
 
 $rr = new RoundRobin;
-$rr->setTimeQuota(3)->setQueue($queue)->goround();
+$rr->setTimeQuota(2)->setQueue($queue)->goround();
+
+$complete = $rr->getComplete();
+
 // print_r($rr->getComplete()); exit;
 
 ?>
@@ -28,7 +32,7 @@ $rr->setTimeQuota(3)->setQueue($queue)->goround();
     <table>
         <tr>
             <th></th>
-            <?php foreach ($queue as $p) : ?>
+            <?php foreach ($complete as $p) : ?>
             <th><?= $p->getName() ?></th>
             <?php endforeach; ?>
         </tr>
@@ -36,7 +40,7 @@ $rr->setTimeQuota(3)->setQueue($queue)->goround();
             <td>대기시간</td>
             <? 
                 $per_wait_time = 0;
-                foreach ($queue as $p) {
+                foreach ($complete as $p) {
                     $wait_time = $p->getWaitTime();
                     $per_wait_time += $wait_time;
                     echo "<td>${wait_time}</td>";
@@ -47,7 +51,7 @@ $rr->setTimeQuota(3)->setQueue($queue)->goround();
             <td>반환시간</td>
             <? 
                 $per_return_time = 0;
-                foreach ($queue as $p) {
+                foreach ($complete as $p) {
                     $return_time = $p->getWaitTime() + $p->getWorkTime();
                     $per_return_time += $return_time;
                     echo "<td>${return_time}</td>";
@@ -59,8 +63,8 @@ $rr->setTimeQuota(3)->setQueue($queue)->goround();
     <br>
     <div>
         <span>전체 시간 : <?= $rr->getTotalTime() ?> </span><br>
-        <span>평균 대기시간 : <?= $per_wait_time / count($queue) ?></span><br>
-        <span>평균 반환시간 : <?= $per_return_time / count($queue) ?></span><br>
+        <span>평균 대기시간 : <?= $per_wait_time / count($complete) ?></span><br>
+        <span>평균 반환시간 : <?= $per_return_time / count($complete) ?></span><br>
     </div>
 </body>
 </html>

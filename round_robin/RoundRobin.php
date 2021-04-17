@@ -109,9 +109,10 @@ class RoundRobin {
                 $this->complete($on_process);
                 
                 if (empty($this->queue)) {
+                    $this->total_time++;
                     break;
                 }
-
+                
                 $on_process = $this->getFirstQueue();
                 $time_quota = $this->getTimeQuota();
             } else if ($time_quota <= 0) {
