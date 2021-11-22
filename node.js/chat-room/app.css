@@ -1,0 +1,61 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.full-width {
+    width: 100%
+}
+
+.full-height {
+    height: 100%
+}
+
+.half-width {
+    width: 50%
+}
+
+.flex {
+    display: flex;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.middle {
+    min-height: 500px;
+}
+
+.footer {
+    min-height: 50px;
+}
+
+.msg-list {
+    border: 1px solid red;
+    width: 80%;
+}
+
+.user-list {
+    border: 1px solid green;
+    width: 20%;
+}
+
+.send-msg {
+    border: 1px solid whites;
+}
+
+.input-msg {
+    width: 100%
+}
+
+.btn-input-msg {
+    min-width: 100px;
+    background: blue;
+    border: 1px solid whites;
+    color: white;
+}
