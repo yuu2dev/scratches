@@ -1,0 +1,68 @@
+body {
+    margin: 0 auto;
+}
+section {
+    border: 1px solid #000;
+    padding: 10px;
+}
+footer {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-1 {
+    border: 1px dotted blue;
+    background: skyblue;
+}
+.box-2 {
+    border: 1px dotted red;
+    background: pink;
+}
+.box-3 {
+    border: 1px dotted green;
+    background: greenyellow;
+}
+.relative-top {
+    position: relative;
+    top: 10px;
+}
+.relative-left {
+    position: relative;
+    left: 10px;
+}
+.relative-right {
+    position: relative;
+    right: 10px;
+}
+.relative-bottom {
+    position: relative;
+    bottom: 40px;
+}
+.fixed-page {
+    height: 1000px;
+    text-align: center;
+    display: flex;
+    /* 가로 정렬 */
+    justify-content: center;
+    /* 세로 정렬 */
+    align-items: center;
+}
+.fixed-header {
+    position: fixed;
+    top: 0px;
+}
+.absolute-header {
+    position: absolute;
+    top: 0px; 
+    right: 0px;
+}
+.absolute-has-ancestor-relative {
+    position: relative;
+    bottom: 30px;
+}
+.absolute-has-ancestor-fixed {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+}

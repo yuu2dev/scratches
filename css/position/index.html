@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+    <!-- 
+        > static
+        HTML 요소의 위치를 결정하는 가장 기본적인 방식입니다.
+        top, right, left, bottom 과 같은 속성에 영향을 받지 않습니다.
+        단순히 웹 페이지의 흐름에 따라 차례대로 요소를 나열
+    -->
+    <section>
+        <h1>position: static</h1>
+        <span class="box-1">상</span>
+        <span class="box-1">좌</span>
+        <span class="box-1">우</span>
+        <div class="box-1">하</div>
+    </section>
+    <!-- 
+        > relative
+        HTML 요소의 기본 위치를 기준으로 위치를 결정하는 상대 위치 지정방식 입니다.
+        top, right, left, bottom 과 같은 속성에 영향을 받지 않습니다.
+        단순히 웹 페이지의 흐름에 따라 차례대로 요소를 나열
+    -->
+    <section>
+        <h1>position: relative</h1>
+        <span class="box-1 relative-top">상</span>
+        <span class="box-1 relative-left">좌</span>
+        <span class="box-1 relative-right">우</span>
+        <div class="box-1 relative-bottom">하</div>
+    </section>
+    <!-- 
+        > fixed
+        뷰포트 (viewport) 기준으로 위치를 설정하는 고정 위치 지정방식입니다.
+        뷰포트란 사용자에게 보여지는 영역입니다.
+        웹페이지가 스크롤 되어도 고정 위치로 지정된 요소는 항상 같은 곳에 위치하게 됩니다.
+    -->
+    <section>
+        <h1>position: fixed</h1>
+        <div class="box-1 fixed-page">본문</div>
+        <div class="box-2 fixed-header">고정 위치</div>
+    </section>
+    <!-- 
+        > absolute
+        고정 위치가 뷰포트를 기준으로 위치를 결정하는 것과 비슷하게 동작합니다.
+        뷰포트(viewport)를 기준으로 하는 것이 아닌 위치가 설정된 조상(ancestor) 요소를 기준으로 위치를 설정하게 됩니다.
+        하지만 위치가 설정된 조상(ancestor) 요소를 가지지 않는다면, HTML 문서의 body 요소를 기준으로 위치를 설정하게 됩니다.
+    -->
+    <section>
+        <h1>position: absolute</h1>
+        <div class="box-3 absolute-header">조상이 없어 body 요소가 기준인 절대 위치</div>
+        <div class="absolute-has-ancestor-relative">
+            <div class="box-3 absolute-header">조상이 relative 인 절대 위치</div>
+        </div>
+        <div class="absolute-has-ancestor-fixed">
+            <div class="box-3 absolute-header">조상이 fixed 인 절대 위치</div>
+        </div>
+    </section>
+    <footer>
+        <a href="http://www.tcpschool.com/css/css_position_position">문서 참조</a>
+    </footer>
+</body>
+</html>
