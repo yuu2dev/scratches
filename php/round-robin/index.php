@@ -13,13 +13,7 @@ $queue = [
 ];
 
 $rr = new RoundRobin;
-<<<<<<< HEAD
 $rr->setTimeQuota(2)->setQueue($queue)->goround();
-=======
-$rr->setTimeQuota(10) // 시간할당량
-    ->setProcesses($processes)
-    ->goround();
->>>>>>> ff37056 (리액트 라우터 만들어보기)
 
 $complete = $rr->getComplete();
 

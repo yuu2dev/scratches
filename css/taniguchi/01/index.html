@@ -1,0 +1,31 @@
+<!-- 웹문서가 어떤 버전의 HTML 언어로 작성되었는지 결정하는 요소 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!-- viewport의 화면의 넓이 를 device-width로 설정 -->
+        <meta name="viewport" content="width=device-width">
+        <title>入会申込</title>
+        <!-- 외부참조 보다 내부참조가 우선순위가 높으며 인라인의 경우 내부참조보다 우선순위가 높다. -->
+        <link rel="stylesheet" href="css/sanitize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="content">
+            <h1>入会申込</h1>
+            <p>入会するには、次のフォームに必要項目をご記入ください</p>
+            <div class="control">
+                <label for="myemail">メールアドレス<span class="required">必須</span></label>
+                <input id="myemail" type="email" name="myemail" />
+            </div>
+            <div class="control">
+                <label for="password">パスワード<span class="required">必須</span></label>
+                <input id="password" type="password" name="password">
+            </div>
+            <div class="control">
+                <!-- 옛날에 input[type=submit] 을 사용했으나 HTML5부터는 button 요소가 생겨서 button[type=submit] 을 사용하는 것이 좋다 -->
+                <button type="submit">登録する</button>
+            </div>
+        </div>
+    </body>
+</html>

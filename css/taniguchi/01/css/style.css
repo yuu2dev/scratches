@@ -1,0 +1,66 @@
+p {
+    font-size: 14px;
+}
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.content {
+    background-color: #fff;
+    width: 600px;
+    /*
+        margin-top: 0;
+        margin-right: auto;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin: 0 auto는 위와 동일
+
+    */
+    margin: 10px auto;
+    border: 1px solid #d1d1d1;
+    padding: 30px;
+}
+input {
+    border: none;
+    border-bottom: 1px solid #d1d1d1;
+    /* 본래 문자 크기의 1.2배 */
+    font-size: 1.2em;
+    width: 100%;
+    padding: 8px;
+}
+button {
+    width: 100%;
+    background-color: #2096f3;
+    color: #fff;
+    padding: 15px; 
+    border: 0;
+    border-radius: 3px;
+    /*
+        x, y, 그림자 크기, 그림자 색상 (a 는 두께 .4는 40%)
+    */
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, .4)
+}
+.required {
+    color: #f33;
+    font-size: .9em;
+    padding: 3px;
+    background-color: #fee;
+    font-weight: bold;
+}
+
+body {
+    background-color: #fafafa;
+}
+.control {
+    margin-bottom: 3em;
+}
+label {
+    /* 
+        label 은 기본적으로 개행이 되지않는 요소이다. (inline) 
+        다음 input 역시 동일하게 개행이 되지않는 요소이다.
+        한 편, input의 width: 100% 으로 넓이를 설정하였지만 margin-bottom은 적용 할 수 없다.
+        적용하기 위해서는 display: block 으로 설정해두어야만 margin 이 적용된다.
+    */
+    display: block;
+    margin-bottom: .5em;
+}
