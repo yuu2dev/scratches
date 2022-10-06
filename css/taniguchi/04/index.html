@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ご利用アンケート</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>ご利用アンケート</h1>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <a href="/">HOMEへ戻る</a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <hr>
+    <div class="container">
+        <form action="" method="post" class="row">
+            <!-- 
+                offset-sm-2 
+                :현재 그리드 열을 8로 지정했으므로 4가 남았습니다. 요소는 왼쪽부터 렌더링되므로 요소가 중앙에 위치하기 위해서는
+                 offset 을 지정하여 2 | 8 | 2 배분하면 가운데 위치 할 수 있습니다.
+            -->
+            <div class="col-sm-8 offset-sm-2">
+                <p>この度は、本書をご利用いただきありがとうございます。恐れ入りますが、以下のフォームにご記入いただき、送信していただけると幸いです。</p>
+                <div class="form-group">
+                    <label for="name">お名前 <span class="badge badge-danger">必須</span></label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="例）山田　太郎" required>
+                </div>
+                <div class="form-group">
+                    <label for="job">ご職業</label>
+                    <select id="job" name="job" class="form-control" size="5" multiple>
+                        <option value="">選択してください</option>
+                        <option value="1">会社員</option>
+                        <option value="2">学生</option>
+                        <option value="0">その他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>知りたい内容（複数選択可）</label>
+                    <div class="form-check">
+                        <input type="checkbox" name="q1" id="q1_1" value="html" class="form-check-control">
+                        <label for="q1_1" class="form-check-label">HTML</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="q1" id="q1_2" value="css" class="form-check-control">
+                        <label for="q1_2" class="form-check-label">CSS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="q1" id="q1_3" value="javascript" class="form-check-control">
+                        <label for="q1_3" class="form-check-label">JavaScript</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>理解度はいかがですか？</label>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="q1" id="q1_1" value="1" class="form-check-control">
+                        <label for="q2_1" class="form-check-label">理解できなかった</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="q1" id="q1_2" value="2" class="form-check-control">
+                        <label for="q2_2" class="form-check-label">大体理解できた</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" name="q1" id="q1_3" value="3" class="form-check-control">
+                        <label for="q2_3" class="form-check-label">理解できた</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">ご意見</label>
+                    <textarea name="message" id="message" rows="10" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">送信する</button>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="container">
+        <footer>
+            <p>&copy; yuu2dev</p>
+        </footer>
+    </div>
+</body>
+</html>
