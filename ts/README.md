@@ -40,3 +40,29 @@ const neverFunc = (flag: boolean = false): string | never => {
   return "s";
 };
 ```
+
+## tsc
+
+> 타입스크립트 컴파일러
+
+```sh
+# tsconfig.json 파일 생성
+tsc --init
+```
+
+```json
+{
+  "compoilerOptions": {
+    // 어떤 자바스크립트 코드를 컴파일 할건지 설정.
+    "target": "es5",
+    // 특정 라이브러리를 추가
+    "lib": ["dom"]
+  },
+  // 파일을 포함. 패턴이 적용되지 않으며 exclude 을 덮어쓴다.
+  "files": [],
+  // 파일이나 폴더를 제외. include 을 재정의한다.
+  "exclude": ["build/*"],
+  // 파일이나 폴더만 포함
+  "include": ["main.ts"]
+}
+```
