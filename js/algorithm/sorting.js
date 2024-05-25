@@ -1,7 +1,7 @@
 /**
  * 2024.05.25
  * @author minsa
- * n > 1 보다 크다고 가정
+ * 방송대 알고리즘 정렬에 대하여 자바스크립트로 작성해보았음
  */
 
 /** 선택 정렬 */
@@ -79,6 +79,7 @@ const shell = (arr = []) => {
     }
     return arr
 }
+/** 퀵 정렬 */
 const quick = (arr = []) => {
     if (arr.length <= 1) {
         return arr
@@ -122,6 +123,48 @@ const quick = (arr = []) => {
         ...quick(rarr)
     ]
 }
+/** 합병 정렬 */
+const merge = (arr = []) => {
+    if (arr.length <= 1) {
+        return arr
+    }
+    // 합병정렬 중앙 인덱스
+    const m = Math.floor(arr.length / 2)
+    let larr = []
+    for (let i = 0; i < m; i++) {
+        larr.push(arr[i])
+    }
+    let rarr = []
+    for (let i = m; i < arr.length; i++) {
+        rarr.push(arr[i])
+    }
+    larr = merge(larr)
+    rarr = merge(rarr)
+    // 병합하기
+    const joiner = (left = [], right = []) => {
+        let i = 0, j = 0, k = 0
+        while (i < left.length && j < right.length) {
+            if (left[i] <= right[j]) {
+                arr[k] = left[i]
+                i++
+            } else {
+                arr[k] = right[j]
+                j++
+            }
+            k++
+        }
+        for (; i < left.length; i++) {
+            arr[k] = left[i]
+            k++
+        }
+        for (; j < right.length; j++) {
+            arr[k] = right[j]
+            k++
+        }
+        return arr
+    }
+    return joiner(larr, rarr)
+}
 console.log(
     '선택정렬', 
     selection([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
@@ -145,4 +188,8 @@ console.log(
 console.log(
     '퀵 정렬',
     quick([30, 50, 17, 40, 88, 15, 44, 55, 22, 11, 66, 13, 85])
+)
+console.log(
+    '합병 정렬',
+    merge([20, 15,  35, 45, 40, 10, 30, 25])
 )
