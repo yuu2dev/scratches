@@ -5,7 +5,7 @@
  */
 
 /** 선택 정렬 */
-const selection = (arr) => {
+const selection = (arr = []) => {
     // n-1 반복
     for (let i=0; i<arr.length - 1; i++) {
         let min = i
@@ -19,10 +19,28 @@ const selection = (arr) => {
         const tmp = arr[i]
         arr[i] = arr[min]
         arr[min] = tmp
-
     }
     return arr
 }
+/** 버블 정렬 */
+const bubble = (arr = []) => {
+    for (let i=0; i<arr.length-1; i++) {
+        for (j=0; j<arr.length-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                const tmp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = tmp
+            }
+        }
+    }
+    return arr
+}
+console.log(
+    '선택정렬', 
+    selection([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
+)
+console.log(
+    '버블정렬',
+    bubble([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
+)
 
-const result = selection([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
-console.log(result)
