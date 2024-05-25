@@ -79,6 +79,49 @@ const shell = (arr = []) => {
     }
     return arr
 }
+const quick = (arr = []) => {
+    if (arr.length <= 1) {
+        return arr
+    }
+    // 분할 함수
+    const partition = (part_arr = []) => {
+        let left = 1
+        let right = part_arr.length - 1
+        while (left < right) {
+            while (left < part_arr.length && part_arr[left] < part_arr[0]) {
+                left++
+            }
+            while (right > 0 && part_arr[right] >= part_arr[0]) {
+                right--
+            }
+            if (left < right) {
+                const tmp = part_arr[left]
+                part_arr[left] = part_arr[right]
+                part_arr[right] = tmp
+            } else {
+                const tmp = part_arr[0]
+                part_arr[0] = part_arr[right]
+                part_arr[right] = tmp
+            }
+        }
+        return right
+    }
+    const pivot = partition(arr)
+    const larr = []
+    for (let i=0; i<pivot; i++) {
+        larr.push(arr[i])
+    }
+    const rarr = []
+    for (let i=pivot+1; i<arr.length; i++) {
+        rarr.push(arr[i])
+    }
+    // 피봇 기준으로 반띵
+    return [
+        ...quick(larr),
+        arr[pivot],
+        ...quick(rarr)
+    ]
+}
 console.log(
     '선택정렬', 
     selection([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
@@ -98,4 +141,8 @@ console.log(
 console.log(
     '셸 정렬',
     shell([30, 50, 10, 40, 75, 20, 45, 55, 25, 35, 65, 80, 15, 60, 5, 70])
+)
+console.log(
+    '퀵 정렬',
+    quick([30, 50, 17, 40, 88, 15, 44, 55, 22, 11, 66, 13, 85])
 )
