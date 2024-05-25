@@ -66,6 +66,19 @@ const insertion = (arr = []) => {
     }
     return arr
 }
+/** 셸 정렬 */
+const shell = (arr = []) => {
+    for (let d = Math.floor(arr.length / 2); d >= 1; d = Math.floor(d / 2)) {
+        for (i = d; i < arr.length; i++) {
+            let value = arr[i]
+            for (j = i; j >= d && arr[j - d] > value; j = j - d) {
+                arr[j] = arr[j - d]
+            }
+            arr[j] = value
+        }
+    }
+    return arr
+}
 console.log(
     '선택정렬', 
     selection([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
@@ -76,9 +89,13 @@ console.log(
 )
 console.log(
     '버블정렬 개선',
-    bubble([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
+    bubble_renewal([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
 )
 console.log(
     '삽입정렬',
     insertion([30, 20, 40, 35, 5, 10, 45, 50, 25, 15])
+)
+console.log(
+    '셸 정렬',
+    shell([30, 50, 10, 40, 75, 20, 45, 55, 25, 35, 65, 80, 15, 60, 5, 70])
 )
